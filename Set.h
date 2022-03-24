@@ -4,10 +4,11 @@
  *   Programmer: Kurdun Andrei
  *   Code Style: Yandex
  */
+#pragma once
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
 #include <initializer_list>
-#include <algorithm>
 
 template<class TValueType>
 struct TNode;
@@ -20,8 +21,8 @@ class Set {
 public:
     Set() = default;
 
-    Set(Set& set) {
-        for(auto currentValue : set) {
+    Set(const Set& set) {
+        for(const auto& currentValue : set) {
             insert(currentValue);
         }
     }
